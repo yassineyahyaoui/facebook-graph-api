@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook Graph Api Request</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <fb:login-button scope="public_profile" onlogin="testAPI();">
+    </fb:login-button>
+
+    <div id="status"></div>
+
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "375127777811064",
+          cookie: true, // Enable cookies to allow the server to access the session.
+          xfbml: true, // Parse social plugins on this webpage.
+          version: "v13.0", // Use this Graph API version for this call.
+        });
+      };
+
+      function testAPI() {
+        // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log("Welcome!  Fetching your information.... ");
+        FB.api("/me", function (response) {
+          console.log(response);
+          localStorage.setItem("facebookId", response.id);
+          localStorage.setItem("facebookName", response.name);
+          console.log(JSON.stringify(response.accounts));
+          document.getElementById("status").innerHTML =
+            "Thanks for logging in, " + response.name + "!";
+        });
+      }
+    </script>
+
+    <!-- Load the JS SDK asynchronously -->
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
+  </body>
+</html>
