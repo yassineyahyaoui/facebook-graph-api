@@ -12,14 +12,6 @@
     </fb:login-button>
 
     <script>
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: "375127777811064",
-          cookie: true,
-          xfbml: true,
-          version: "v13.0",
-        });
-      };
 
       function testAPI() {
         FB.api(
@@ -38,7 +30,7 @@
       async
       defer
       crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&cookie=1&version=v13.0&appId=375127777811064"
     ></script>
   </body>
 </html>
