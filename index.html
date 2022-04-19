@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <fb:login-button scope="public_profile" onlogin="testAPI();">
+    <fb:login-button
+      scope="public_profile,pages_show_list,pages_read_engagement"
+      onlogin="testAPI();"
+    >
     </fb:login-button>
-    
-    <button onlogin="testAPI();">
-    </button>
 
     <script>
       window.fbAsyncInit = function () {
@@ -22,11 +22,15 @@
       };
 
       function testAPI() {
-        console.log("Welcome!  Fetching your information.... ");
-        FB.api("/me", function (response) {
-          console.log(response);
-          console.log(JSON.stringify(response.accounts));
-        });
+        FB.api(
+          "/me",
+          "GET",
+          { fields: "id,name,accounts" },
+          function (response) {
+            console.log(response);
+            console.log(JSON.stringify(response.accounts));
+          }
+        );
       }
     </script>
 
