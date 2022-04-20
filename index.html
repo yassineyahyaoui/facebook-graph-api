@@ -6,7 +6,7 @@
   </head>
   <body>
     <fb:login-button
-      scope="public_profile,pages_show_list,pages_read_engagement"
+      scope="public_profile,pages_show_list"
       onlogin="testAPI();"
     >
     </fb:login-button>
@@ -19,7 +19,6 @@
           "GET",
           { fields: "id,name,accounts" },
           function (response) {
-            console.log(response);
             console.log(JSON.stringify(response.accounts));
           }
         );
