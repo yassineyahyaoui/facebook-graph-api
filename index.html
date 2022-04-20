@@ -34,13 +34,17 @@
           statusChangeCallback(response);
         });
       }
-
-      window.fbAsyncInit = function () {
-        FB.getLoginStatus(function (response) {
-          // Called after the JS SDK has been initialized.
-          statusChangeCallback(response); // Returns the login status.
-        });
-      };
+      if (
+        window.location.href ===
+        "https://yassineyahyaoui.github.io/facebook-graph-api/"
+      ) {
+        window.fbAsyncInit = function () {
+          FB.getLoginStatus(function (response) {
+            // Called after the JS SDK has been initialized.
+            statusChangeCallback(response); // Returns the login status.
+          });
+        };
+      }
 
       function testAPI() {
         FB.api(
