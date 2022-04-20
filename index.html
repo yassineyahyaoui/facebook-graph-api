@@ -12,7 +12,6 @@
     </fb:login-button>
 
     <script>
-
       function testAPI() {
         FB.api(
           "/me",
@@ -20,6 +19,9 @@
           { fields: "id,name,accounts" },
           function (response) {
             console.log(JSON.stringify(response.accounts));
+            document
+              .getElementsByTagName("body")[0]
+              .appendChild(response.accounts);
           }
         );
       }
