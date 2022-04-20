@@ -7,12 +7,41 @@
   <body>
     <fb:login-button
       scope="public_profile,pages_show_list"
-      onlogin="testAPI();"
+      onlogin="checkLoginState();"
     >
     </fb:login-button>
     <div id="data"></div>
 
     <script>
+      function statusChangeCallback(response) {
+        // Called with the results from FB.getLoginStatus().
+        console.log("statusChangeCallback");
+        console.log(response); // The current login status of the person.
+        if (response.status === "connected") {
+          // Logged into your webpage and Facebook.
+          testAPI();
+        } else {
+          // Not logged into your webpage or we are unable to tell.
+          document.getElementById("status").innerHTML =
+            "Please log " + "into this webpage.";
+        }
+      }
+
+      function checkLoginState() {
+        // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function (response) {
+          // See the onlogin handler
+          statusChangeCallback(response);
+        });
+      }
+
+      window.fbAsyncInit = function () {
+        FB.getLoginStatus(function (response) {
+          // Called after the JS SDK has been initialized.
+          statusChangeCallback(response); // Returns the login status.
+        });
+      };
+
       function testAPI() {
         FB.api(
           "/me",
@@ -20,7 +49,9 @@
           { fields: "id,name,accounts" },
           function (response) {
             console.log(JSON.stringify(response.accounts));
-            document.getElementById("data").innerHTML = JSON.stringify(response.accounts);
+            document.getElementById("data").innerHTML = JSON.stringify(
+              response.accounts
+            );
           }
         );
       }
