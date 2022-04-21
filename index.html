@@ -50,7 +50,11 @@
         FB.api(
           "/111606037986643/posts",
           "GET",
-          { fields: "insights.metric(post_reactions_like_total)" },
+          {
+            fields: "insights.metric(post_reactions_like_total)",
+            access_token:
+              "EAAFVLT3xGngBALz06ZCtNvFlkbNgNcX5GObj4zp6xxlkjY9I4ksejMQrXpi1Fquu5zdmdhc7QTHwsHv8o18hQs941EIgXkKR0Qss83Kg8xCLtoS4dDm6i2Nx0zNrjpZCrRYJ3el9J4zM9vaTt2BfMPGKIltbcDnyHaLocZAZBbaU7HTgafxjm6RKViysDJxnctIxQtqtAaLMmIAZBoE2SXpuyXUItGpQZD",
+          },
           function (response) {
             console.log(response);
           }
