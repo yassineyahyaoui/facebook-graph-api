@@ -51,7 +51,7 @@
               function (response2) {
                 document.getElementById("page-data").innerHTML =
                   "28 Days Total Impressions: " +
-                  JSON.stringify(response2.data[1].values[1].value);
+                  JSON.stringify(response2.data[0].values[1].value);
                 console.log(response2);
               }
             );
