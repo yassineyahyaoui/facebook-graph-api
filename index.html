@@ -49,7 +49,7 @@
                 access_token: response.accounts.data[0].access_token,
               },
               function (response2) {
-                localStorage.setItem("fbdata", response2);
+                localStorage.setItem("fbdata", JSON.stringify(response2));
                 document.getElementById("page-data").innerHTML =
                   "28 Days Total Impressions: " +
                   JSON.stringify(response2.data[0].values[1].value) +
