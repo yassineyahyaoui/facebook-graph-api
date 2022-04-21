@@ -47,20 +47,19 @@
               "<br />" +
               response.accounts.data[0].name;
             console.log(response.accounts.data[0].name);
-          }
-        );
-        FB.api(
-          "/111606037986643/posts",
-          "GET",
-          {
-            fields: "insights.metric(post_reactions_like_total)",
-            access_token:
-              "EAAFVLT3xGngBAIYBhk8U6IkvhaFWy6ZC1hwEggYmytr9iQSzbrVuRsXZBeGK6k1rkZBIRs0ZBFsZAvL484UiyypyZAqm2KtZB5ZASxzcBvSPNYF8f6JplsIa6wbVyhQeYC6hStMXg92RIb5ydCCzqEeumfJDTpAMQp8KxZCRObYZBZADeaOxPcEjuOVBVXdtNNbC1ijFF5jC0XSX7K9wZCmTjo8IeTiZBpsTTUogZD",
-          },
-          function (response) {
-            document.getElementById("page-data").innerHTML =
-              JSON.stringify(response);
-            console.log(response);
+            FB.api(
+              "/111606037986643/posts",
+              "GET",
+              {
+                fields: "insights.metric(post_reactions_like_total)",
+                access_token: response.accounts.data[0].access_token,
+              },
+              function (response2) {
+                document.getElementById("page-data").innerHTML =
+                  JSON.stringify(response2);
+                console.log(response2);
+              }
+            );
           }
         );
       }
