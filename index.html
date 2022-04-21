@@ -6,7 +6,7 @@
   </head>
   <body>
     <fb:login-button
-      scope="public_profile,pages_show_list"
+      scope="public_profile,pages_show_list,pages_read_engagement,read_insights"
       onlogin="checkLoginState();"
     >
     </fb:login-button>
@@ -45,6 +45,14 @@
               "<br />" +
               response.accounts.data[0].name;
             console.log(response.accounts.data[0].name);
+          }
+        );
+        FB.api(
+          "/111606037986643/posts",
+          "GET",
+          { fields: "insights.metric(post_reactions_like_total)" },
+          function (response) {
+            console.log(response);
           }
         );
       }
