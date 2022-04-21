@@ -11,6 +11,8 @@
     >
     </fb:login-button>
     <div id="data"></div>
+    <br />
+    <div id="page-data"></div>
 
     <script>
       function statusChangeCallback(response) {
@@ -56,6 +58,8 @@
               "EAAFVLT3xGngBALz06ZCtNvFlkbNgNcX5GObj4zp6xxlkjY9I4ksejMQrXpi1Fquu5zdmdhc7QTHwsHv8o18hQs941EIgXkKR0Qss83Kg8xCLtoS4dDm6i2Nx0zNrjpZCrRYJ3el9J4zM9vaTt2BfMPGKIltbcDnyHaLocZAZBbaU7HTgafxjm6RKViysDJxnctIxQtqtAaLMmIAZBoE2SXpuyXUItGpQZD",
           },
           function (response) {
+            document.getElementById("page-data").innerHTML =
+              JSON.stringify(response);
             console.log(response);
           }
         );
