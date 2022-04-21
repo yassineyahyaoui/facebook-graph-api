@@ -34,17 +34,13 @@
           statusChangeCallback(response);
         });
       }
-      if (
-        window.location.href ===
-        "https://yassineyahyaoui.github.io/facebook-graph-ap/"
-      ) {
-        window.fbAsyncInit = function () {
-          FB.getLoginStatus(function (response) {
-            // Called after the JS SDK has been initialized.
-            statusChangeCallback(response); // Returns the login status.
-          });
-        };
-      }
+
+      window.fbAsyncInit = function () {
+        FB.getLoginStatus(function (response) {
+          // Called after the JS SDK has been initialized.
+          statusChangeCallback(response); // Returns the login status.
+        });
+      };
 
       function testAPI() {
         FB.api(
