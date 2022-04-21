@@ -42,7 +42,7 @@
             console.log(JSON.stringify(response.accounts));
             document.getElementById("data").innerHTML =
               JSON.stringify(response.accounts) +
-              <br /> +
+              "<br />" +
               response.accounts.data[0].name;
             console.log(response.accounts.data[0].name);
           }
