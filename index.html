@@ -48,15 +48,15 @@
               response.accounts.data[0].name;
             console.log(response.accounts.data[0].name);
             FB.api(
-              "/111606037986643/posts",
+              "/111606037986643/insights/page_impressions/days_28",
               "GET",
               {
-                fields: "insights.metric(post_reactions_like_total)",
                 access_token: response.accounts.data[0].access_token,
               },
               function (response2) {
                 document.getElementById("page-data").innerHTML =
-                  JSON.stringify(response2);
+                  "28 Days Total Impressions " +
+                  JSON.stringify(response2.data[0].values[1].value);
                 console.log(response2);
               }
             );
