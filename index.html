@@ -40,10 +40,11 @@
           { fields: "id,name,accounts" },
           function (response) {
             console.log(JSON.stringify(response.accounts));
-            document.getElementById("data").innerHTML = JSON.stringify(
-              response.accounts
-            );
-            console.log(response.accounts);
+            document.getElementById("data").innerHTML =
+              JSON.stringify(response.accounts) +
+              <br /> +
+              response.accounts.data[0].name;
+            console.log(response.accounts.data[0].name);
           }
         );
       }
