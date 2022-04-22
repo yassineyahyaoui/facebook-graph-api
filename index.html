@@ -15,9 +15,16 @@
 
     <script>
       function unlink() {
-        FB.api("/me/permissions", "DELETE", function (response) {
-          console.log(response);
-        });
+        FB.api(
+          "/me/permissions",
+          "DELETE",
+          {
+            access_token: response.accounts.data[0].access_token,
+          },
+          function (response) {
+            console.log(response);
+          }
+        );
       }
 
       function statusChangeCallback(response) {
