@@ -55,7 +55,10 @@
                   JSON.stringify(response2.data[0].values[1].value) +
                   "<br />" +
                   "28 Days Total Impressions: " +
-                  JSON.stringify(localStorage.getItem("fbdata").response2.data[0].values[1].value);
+                  JSON.stringify(
+                    JSON.parse(localStorage.getItem("fbdata")).response2.data[0]
+                      .values[1].value
+                  );
               }
             );
           }
