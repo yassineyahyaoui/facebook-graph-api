@@ -10,24 +10,10 @@
       onlogin="checkLoginState();"
     >
     </fb:login-button>
-    <button onclick="unlink()">unlink facebook</button>
+    <button onclick="unlinkAPI()">unlink facebook</button>
     <div id="page-data"></div>
 
     <script>
-      function unlink() {
-        FB.api(
-          "/me/permissions",
-          "DELETE",
-          {
-            access_token:
-              "EAAFVLT3xGngBAFM3zdzBF30BU6Pq0MZBwM9wBQdupcdnZAi5Di4bJ2Njwd7qg83jex0jdFUj7xUECNihmOjtOybeLKcPYv6kjDmxfZCDIN2EWAaPVUpW1CKfPHzUXugOXZAbrY3F6ZCxLwGZCuomqB1T0esQgbdLK9KGNvaJDxQ2uz1CAJ31zAwZBUSv9l3JbXjdpdtNgSbigQUeA9GqPYb3f06DyU82AwZD",
-          },
-          function (response) {
-            console.log(response);
-          }
-        );
-      }
-
       function statusChangeCallback(response) {
         console.log("statusChangeCallback");
         console.log(response);
@@ -73,14 +59,25 @@
                   JSON.stringify(
                     JSON.parse(localStorage.getItem("fbdata")).data[0].values[1]
                       .value
-                  ) +
-                  "<br />" +
-                  JSON.stringify(
-                    JSON.parse(sessionStorage.getItem("fbssls_375127777811064"))
-                      .authResponse.accessToken
                   );
               }
             );
+          }
+        );
+      }
+
+      function unlinkAPI() {
+        FB.api(
+          "/me/permissions",
+          "DELETE",
+          {
+            access_token: JSON.stringify(
+              JSON.parse(sessionStorage.getItem("fbssls_375127777811064"))
+                .authResponse.accessToken
+            ),
+          },
+          function (response) {
+            console.log(response);
           }
         );
       }
