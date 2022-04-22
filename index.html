@@ -19,10 +19,13 @@
           "/me/permissions",
           "DELETE",
           {
-            access_token: response.accounts.data[0].access_token,
+            access_token: JSON.parse(
+              sessionStorage.getItem("fbssls_375127777811064").authResponse
+                .accessToken
+            ),
           },
-          function () {
-            console.log("response");
+          function (response) {
+            console.log(response);
           }
         );
       }
