@@ -10,10 +10,16 @@
       onlogin="checkLoginState();"
     >
     </fb:login-button>
-    <fb:login-button> </fb:login-button>
+    <button onclick="unlink()">unlink facebook</button>
     <div id="page-data"></div>
 
     <script>
+      function unlink() {
+        FB.api("/me/permissions", "DELETE", function (response) {
+          console.log(response);
+        });
+      }
+
       function statusChangeCallback(response) {
         console.log("statusChangeCallback");
         console.log(response);
