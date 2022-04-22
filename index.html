@@ -11,6 +11,7 @@
     >
     </fb:login-button>
     <button onclick="unlinkAPI()">unlink facebook</button>
+    <button onclick="unlink()">unlink facebook</button>
     <div id="page-data"></div>
 
     <script>
@@ -80,6 +81,10 @@
             console.log(response);
           }
         );
+      }
+
+      function unlink() {
+        FB.logout();
       }
     </script>
 
